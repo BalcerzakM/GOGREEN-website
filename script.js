@@ -59,3 +59,37 @@ window.addEventListener("resize", updateCarousel);
 totalSlides.textContent = String(slides.length).padStart(2, "0");
 
 updateCarousel();
+
+/**MOBILE MENU */
+
+const menuBtn = document.querySelector(".mobile-menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+	const isOpen = mobileMenu.classList.toggle("active");
+
+	menuBtn.classList.toggle("active", isOpen);
+	menuBtn.setAttribute("aria-expanded", isOpen);
+});
+
+//Zamknięcie menu po kliknięciu w link
+document.querySelectorAll(".mobile-menu a").forEach((link) => {
+	link.addEventListener("click", () => {
+		mobileMenu.classList.remove("active");
+		menuBtn.classList.remove("active");
+		menuBtn.setAttribute("aria-expanded", "false");
+	});
+});
+
+//Zamknięcie po kliknięciu poza menu
+document.addEventListener("click", (event) => {
+	if (
+		mobileMenu.classList.contains("active") &&
+		!mobileMenu.contains(event.target) &&
+		!menuBtn.contains(event.target)
+	) {
+		mobileMenu.classList.remove("active");
+		menuBtn.classList.remove("active");
+		menuBtn.setAttribute("aria-expanded", "false");
+	}
+});
