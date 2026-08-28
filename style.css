@@ -48,7 +48,7 @@ a {
 }
 
 .container {
-	width: min(1180px, 92vw);
+	width: min(1400px, 92vw);
 	margin: auto;
 }
 
@@ -91,7 +91,7 @@ h3 {
 }
 
 h1 {
-	font-size: clamp(48px, 6.5vw, 92px);
+	font-size: clamp(43px, 6vw, 88px);
 }
 
 h2 {
@@ -185,13 +185,10 @@ p {
 		#26105e 34%,
 		#14072a 70%
 	);
-	background-image: url(images/główne\ szerokie.png);
+	background-image: url(images/hero_tlo.png);
 	background-repeat: no-repeat;
-	/* background-position: left; */
 	background-size: cover;
 	color: white;
-	/* position: relative; */
-	/* overflow: hidden; */
 }
 
 /* HEADER */
@@ -431,7 +428,7 @@ p {
 
 /* NUMBERS */
 
-/* ANIMATION */
+/* ANIMATIONS */
 @keyframes slide-in {
 	from {
 		opacity: 0;
@@ -447,6 +444,76 @@ p {
 	animation: slide-in linear;
 	animation-timeline: view();
 	animation-range: entry 0% cover 20%;
+}
+
+@keyframes reveal-left {
+	from {
+		opacity: 0;
+		transform: translate3d(-40px, 0, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.reveal-left {
+	animation: reveal-left 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes reveal-up {
+	from {
+		opacity: 0;
+		transform: translate3d(0, 40px, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.reveal-up {
+	animation: reveal-up linear both;
+	animation-timeline: view();
+	animation-range: entry 30% cover 60%;
+}
+
+@keyframes image-reveal {
+	from {
+		opacity: 0;
+		transform: scale(1.08);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.image-reveal {
+	animation: image-reveal linear both;
+	animation-timeline: view();
+	animation-range: entry 0% cover 35%;
+}
+
+@keyframes elegant-reveal {
+	from {
+		opacity: 0;
+		transform: translate3d(0, 30px, 0) scale(0.98);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0) scale(1);
+	}
+}
+
+.elegant-reveal {
+	animation: elegant-reveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+	animation-timeline: view();
+	animation-range: entry 40% cover 60%;
 }
 
 .numbers {
@@ -556,7 +623,6 @@ p {
 	background-image: url(images/GŁÓWNY\ BANER\ HD.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
-	background-attachment: fixed;
 }
 
 .frames {
@@ -1558,10 +1624,15 @@ footer {
 	.divider {
 		height: 560px;
 	}
+
+	.lightbox {
+		background-attachment: scroll;
+		background-position: right;
+	}
 }
 
 @media (max-width: 640px) {
-	.brand a {
+	.hidden {
 		display: none;
 	}
 
@@ -2020,5 +2091,17 @@ footer {
 		width: auto;
 		margin: 0 16px 18px;
 		padding: 28px !important;
+	}
+}
+
+/* STATIC VERSION*/
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
 	}
 }
