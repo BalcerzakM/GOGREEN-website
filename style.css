@@ -191,23 +191,6 @@ p {
 	color: white;
 }
 
-/* HEADER */
-/* .header {
-	min-height: 7%;
-	height: 100px;
-	/* background: radial-gradient(
-		circle at 32% 48%,
-		#4820a1 0,
-		#26105e 34%,
-		#14072a 70%
-	); *
-	color: white;
-	position: sticky;
-	top: 0;
-	overflow: hidden;
-	z-index: 999;
-} */
-
 .header {
 	position: fixed;
 
@@ -224,35 +207,6 @@ p {
 
 	pointer-events: none;
 }
-
-/* .hero:before {
-	content: "";
-	position: absolute;
-	inset: -20% auto auto -15%;
-	width: 65%;
-	height: 85%;
-	background: radial-gradient(circle, rgba(90, 49, 205, 0.55), transparent 68%);
-	filter: blur(25px);
-} */
-
-/* .header .nav {
-	position: absolute;
-	z-index: 10;
-	left: 50%;
-	top: 22px;
-	transform: translateX(-50%);
-	width: min(1500px, 95vw);
-	height: 62px;
-	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.93);
-	color: #141218;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0 18px 0 22px;
-	box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
-	pointer-events: auto;
-} */
 
 .header .nav {
 	width: min(1500px, 95vw);
@@ -1316,7 +1270,7 @@ p {
 	object-fit: contain;
 }
 
-.curved-frames {
+#curved-frames {
 	background-image: url(images/ramy_giete_tlo.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -1425,6 +1379,13 @@ p {
 }
 
 /* WOOD */
+#implementation-bg {
+	background-image: url(images/realizacje_tlo.webp);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
 .wood-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
