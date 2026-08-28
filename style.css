@@ -1450,7 +1450,6 @@ p {
 }
 
 .contact-photo {
-	padding: 14px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1460,7 +1459,7 @@ p {
 	width: 100%;
 	height: 100%;
 	max-height: 580px;
-	object-fit: contain;
+	object-fit: cover;
 }
 
 .contact-card {
@@ -1596,6 +1595,18 @@ footer {
 	.lightbox {
 		background-attachment: scroll;
 		background-position: right;
+	}
+
+	.contact-photo img {
+		max-height: 300px; /* zdjęcie nie zajmuje całej wysokości na mobile */
+		min-height: 500px;
+		max-width: 560px;
+		object-fit: cover; /* ładnie wypełnia */
+	}
+
+	.contact-card {
+		padding: 28px 20px; /* mniejszy padding na mobile */
+		border-radius: 16px;
 	}
 }
 
@@ -1824,100 +1835,6 @@ footer {
 	height: 420px;
 }
 
-/* Full-width final project/contact banner with the supplied catalogue photo. */
-.contact-section {
-	padding-left: 0;
-	padding-right: 0;
-	padding-bottom: 0;
-}
-
-.contact-section > .container {
-	width: 100%;
-	max-width: none;
-}
-
-.contact-section .section-head {
-	width: min(1180px, 92vw);
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.contact-wrap {
-	position: relative;
-	display: block !important;
-	min-height: 780px;
-	border-radius: 0 !important;
-	border: 0 !important;
-	background: #170a31 !important;
-	overflow: hidden;
-	isolation: isolate;
-}
-
-.contact-wrap:before {
-	content: "";
-	position: absolute;
-	z-index: 0;
-	inset: -8%;
-	background-image: var(--contact);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	filter: blur(34px) brightness(0.52) saturate(0.86);
-	transform: scale(1.12);
-}
-
-.contact-wrap:after {
-	content: "";
-	position: absolute;
-	z-index: 2;
-	inset: 0;
-	background: linear-gradient(
-		90deg,
-		rgba(23, 8, 48, 0.97) 0%,
-		rgba(47, 22, 91, 0.83) 37%,
-		rgba(35, 17, 70, 0.35) 65%,
-		rgba(19, 8, 39, 0.12) 100%
-	);
-}
-
-.contact-photo {
-	position: absolute !important;
-	z-index: 1;
-	inset: 0;
-	padding: 0 !important;
-	border: 0 !important;
-	border-radius: 0 !important;
-	background: transparent !important;
-	display: flex !important;
-	align-items: center;
-	justify-content: center;
-}
-
-.contact-photo img {
-	width: 100% !important;
-	height: 100% !important;
-	max-height: none !important;
-	object-fit: contain !important;
-	object-position: center !important;
-}
-
-.contact-card {
-	position: absolute;
-	z-index: 3;
-	left: max(4vw, calc((100vw - 1180px) / 2));
-	top: 50%;
-	transform: translateY(-50%);
-	width: min(570px, 46vw);
-	background: linear-gradient(
-		145deg,
-		rgba(58, 30, 112, 0.95),
-		rgba(36, 17, 65, 0.94)
-	) !important;
-	border: 1px solid rgba(255, 255, 255, 0.16) !important;
-	box-shadow: 0 30px 80px rgba(9, 3, 22, 0.35);
-	backdrop-filter: blur(8px);
-}
-
 @media (max-width: 980px) {
 	.hero {
 		min-height: auto;
@@ -1952,11 +1869,17 @@ footer {
 
 	.contact-wrap {
 		min-height: 720px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.contact-card {
-		left: 5vw;
-		width: min(560px, 72vw);
+		position: relative;
+		left: auto;
+		top: auto;
+		transform: none;
+		max-width: 560px;
 	}
 }
 
@@ -2028,17 +1951,9 @@ footer {
 
 	.contact-wrap {
 		min-height: 860px;
-		display: flex !important;
+
 		flex-direction: column;
 		justify-content: flex-end;
-	}
-
-	.contact-photo {
-		inset: 0 0 300px 0 !important;
-	}
-
-	.contact-photo img {
-		object-fit: contain !important;
 	}
 
 	.contact-wrap:after {
@@ -2052,13 +1967,7 @@ footer {
 	}
 
 	.contact-card {
-		position: relative;
-		left: auto;
-		top: auto;
-		transform: none;
 		width: auto;
-		margin: 0 16px 18px;
-		padding: 28px !important;
 	}
 }
 
