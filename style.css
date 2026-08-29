@@ -605,7 +605,8 @@ p {
 	max-width: 760px;
 }
 
-.divider .kicker {
+.divider .kicker,
+.deep .kicker {
 	color: #83e5a2;
 }
 
@@ -1358,6 +1359,10 @@ p {
 }
 
 .height-copy {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: space-between;
 	border-radius: 24px;
 	background: linear-gradient(145deg, #4b2789, #2b164f);
 	padding: 44px;
@@ -1370,7 +1375,8 @@ p {
 }
 
 .height-copy .small-photo {
-	height: 300px;
+	align-self: center;
+	height: 62%;
 	margin-top: 25px;
 	border-radius: 18px;
 	overflow: hidden;
@@ -1385,6 +1391,7 @@ p {
 
 .height-copy .btn {
 	margin-top: 22px;
+	/* align-self: center; */
 }
 
 /* WOOD */
@@ -1807,32 +1814,6 @@ footer {
 	color: var(--purple);
 }
 
-/* HQ lighting photos: keep the entire supplied frame visible. */
-.lamp-visual img,
-.photo-card img,
-.lightbox-media img,
-.height-photo img,
-.small-photo img {
-	object-fit: contain !important;
-	object-position: center !important;
-}
-
-.lamp-visual,
-.photo-card,
-.lightbox-media,
-.height-photo,
-.small-photo {
-	background: #f2f0ed;
-}
-
-.height-photo {
-	min-height: 720px;
-}
-
-.small-photo {
-	height: 420px;
-}
-
 @media (max-width: 980px) {
 	.hero {
 		min-height: auto;
@@ -1861,8 +1842,8 @@ footer {
 		min-height: 620px;
 	}
 
-	.small-photo {
-		height: 360px;
+	.height-copy .small-photo {
+		height: 760px;
 	}
 
 	.contact-wrap {
@@ -1932,7 +1913,7 @@ footer {
 		min-height: 500px;
 	}
 
-	.small-photo {
+	.height-copy .small-photo {
 		height: 330px;
 	}
 
