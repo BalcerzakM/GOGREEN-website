@@ -186,7 +186,7 @@ p {
 			rgba(38, 16, 94, 0.6) 34%,
 			rgba(20, 7, 42, 0.7) 70%
 		),
-		url(images/GŁÓWNY\ BANER\ HD.jpg);
+		url(images/glowny_baner_tlo.webp);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -431,7 +431,7 @@ p {
 .elegant-reveal {
 	animation: elegant-reveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 	animation-timeline: view();
-	animation-range: entry 40% cover 60%;
+	animation-range: entry 20% cover 65%;
 }
 
 .numbers {
@@ -537,19 +537,19 @@ p {
 }
 
 .goglass {
-	background-image: url(images/GŁÓWNY\ BANER\ HD.jpg);
+	background-image: url(images/glowny_baner_tlo.webp);
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .frames {
-	background-image: url(images/stoisko\ szkielet.jpg);
+	background-image: url(images/stoisko_tlo.webp);
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .technology {
-	background-image: url(images/TŁO\ HEADRE\ HD.jpg);
+	background-image: url(images/technologia_tlo.webp);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1031,7 +1031,7 @@ p {
 }
 
 .lightbox {
-	background-image: url(images/lighbox_tlo2.jpg);
+	background-image: url(images/lighbox_tlo2.webp);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
@@ -1115,7 +1115,7 @@ p {
 }
 
 .LED {
-	background-image: url(images/oswietlenie_ekspozycyjne.jpg);
+	background-image: url(images/oswietlenie_ekspozycyjne.webp);
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: cover;
@@ -1210,7 +1210,7 @@ p {
 }
 
 #curved-frames {
-	background-image: url(images/ramy_giete_tlo.jpg);
+	background-image: url(images/ramy_giete_tlo.webp);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1265,7 +1265,7 @@ p {
 }
 
 #height-frames {
-	background-image: url(images/ramy_wysokosc.jpg);
+	background-image: url(images/ramy_wysokosc.webp);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1325,7 +1325,6 @@ p {
 
 .height-copy .btn {
 	margin-top: 22px;
-
 }
 
 #implementation-bg {
@@ -1457,13 +1456,8 @@ footer {
 	text-decoration: none;
 }
 
-
-
-
-
 .hero {
 	min-height: 920px;
-
 }
 
 .hero-grid {
@@ -1524,7 +1518,7 @@ footer {
 
 .recommendation-banner {
 	height: 800px;
-	background-image: url(./images/doswiadczenie_tlo.png);
+	background-image: url(./images/doswiadczenie_tlo.webp);
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -1561,17 +1555,13 @@ footer {
 	color: var(--purple);
 }
 
-
-
-
-
 .mobile-menu,
 .mobile-menu-btn {
 	display: none;
 }
 
 @media (max-width: 980px) {
-.hero {
+	.hero {
 		min-height: auto;
 	}
 
@@ -1659,7 +1649,7 @@ footer {
 		border-radius: 16px;
 	}
 
-.hero {
+	.hero {
 		min-height: auto;
 	}
 
@@ -1707,7 +1697,7 @@ footer {
 }
 
 @media (max-width: 640px) {
-.hidden {
+	.hidden {
 		display: none;
 	}
 
@@ -1777,7 +1767,7 @@ footer {
 		font-size: 16px;
 	}
 
-.hero-grid {
+	.hero-grid {
 		padding-top: 96px;
 	}
 
@@ -1863,7 +1853,7 @@ footer {
 		width: auto;
 	}
 
-.mobile-menu {
+	.mobile-menu {
 		right: 12px;
 		left: 12px;
 
@@ -1895,7 +1885,7 @@ footer {
 }
 
 @media (max-width: 1200px) {
-.mobile-menu {
+	.mobile-menu {
 		display: block;
 	}
 
@@ -2133,7 +2123,7 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-*,
+	*,
 	*::before,
 	*::after {
 		animation-duration: 0.01ms !important;
