@@ -2141,6 +2141,23 @@ footer {
 		background-size: 160%;
 		background-position: 80% 100%;
 	}
+
+	.LED {
+		background-position: 90%;
+	}
+
+	.hero {
+		background-size: auto;
+	}
+
+	.technology {
+		background-position: 90%;
+	}
+
+	#implementation-bg {
+		background-position: 80%;
+		background-size: cover;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
