@@ -499,28 +499,6 @@ p {
 	isolation: isolate;
 }
 
-.divider .banner-bg {
-	position: absolute;
-	inset: -5%;
-	z-index: 0;
-	background-image: var(--banner);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	filter: blur(28px) saturate(0.82) brightness(0.72);
-	transform: scale(1.08);
-	opacity: 0.72;
-}
-
-.divider .banner-fit {
-	position: absolute;
-	inset: 0;
-	z-index: 1;
-	background-image: var(--banner);
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-}
 
 .divider:after {
 	content: "";
@@ -583,25 +561,6 @@ p {
 	max-width: 670px;
 }
 
-.pos-top .banner-fit {
-	background-position: center 18%;
-}
-
-.pos-bottom .banner-fit {
-	background-position: center 82%;
-}
-
-.pos-left .banner-fit {
-	background-position: 62% center;
-}
-
-.pos-top .banner-bg {
-	background-position: center 25%;
-}
-
-.pos-bottom .banner-bg {
-	background-position: center 75%;
-}
 
 #example-section {
 	background-image: url(images/stoisko_tlo.webp);
@@ -610,13 +569,6 @@ p {
 	background-repeat: no-repeat;
 }
 
-.pos-left .banner-bg {
-	background-position: 35% center;
-}
-
-.pos-right .banner-bg {
-	background-position: 70% center;
-}
 
 .cta-band {
 	margin: 44px auto 0;
@@ -1487,18 +1439,6 @@ footer {
 	height: 860px;
 }
 
-.divider .banner-bg {
-	inset: -8%;
-	filter: blur(34px) saturate(0.88) brightness(0.68);
-	transform: scale(1.14);
-	opacity: 0.86;
-}
-
-.divider .banner-fit {
-	inset: 3% 1%;
-	background-size: contain;
-	background-position: center;
-}
 
 .divider:after {
 	background: linear-gradient(
@@ -2050,9 +1990,6 @@ footer {
 		height: 620px;
 	}
 
-	.divider .banner-fit {
-		inset: 5% 0;
-	}
 
 	.divider .copy {
 		justify-content: flex-end;
