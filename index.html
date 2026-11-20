@@ -3,10 +3,107 @@
 
 <head>
     <meta charset="utf-8">
+<!-- GOGREEN analytics: Basic Consent Mode v2, GTM-TK22SB8P -->
+<script>
+(function(w,d){
+  'use strict';
+  var key='gogreen_consent_v1', lifetime=180*24*60*60*1000, loaded=false;
+  var choice=null;
+  try {
+    var saved=JSON.parse(w.localStorage.getItem(key));
+    if(saved && saved.version===1 && typeof saved.analytics==='boolean' && saved.expires>Date.now()) choice=saved;
+  } catch(e) {}
+  w.dataLayer=w.dataLayer||[];
+  w.gtag=w.gtag||function(){w.dataLayer.push(arguments);};
+  w.gtag('consent','default',{
+    analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',
+    functionality_storage:'granted',security_storage:'granted',personalization_storage:'denied'
+  });
+  w.gtag('set','ads_data_redaction',true);
+  w.gtag('set','allow_google_signals',false);
+  w.gtag('set','allow_ad_personalization_signals',false);
+  w['ga-disable-G-6VZNBP71NZ']=!(choice && choice.analytics);
+  function loadGtm(){
+    if(loaded) return;
+    loaded=true;
+    w.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
+    var s=d.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtm.js?id=GTM-TK22SB8P';
+    d.head.appendChild(s);
+  }
+  function update(analytics){
+    w['ga-disable-G-6VZNBP71NZ']=!analytics;
+    w.gtag('consent','update',{
+      analytics_storage:analytics?'granted':'denied',
+      ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'
+    });
+    if(analytics) loadGtm();
+  }
+  function clearAnalyticsCookies(){
+    d.cookie.split(';').forEach(function(part){
+      var name=part.split('=')[0].trim();
+      if(!/^(_ga(?:_|$)|_gid$|_gat)/.test(name)) return;
+      ['',d.location.hostname,'.'+d.location.hostname,'.gogreensystem.pl'].forEach(function(domain){
+        d.cookie=name+'=; Max-Age=0; path=/; SameSite=Lax'+(domain?'; domain='+domain:'');
+      });
+    });
+  }
+  if(choice && choice.analytics) update(true);
+  d.addEventListener('DOMContentLoaded',function(){
+    var banner=d.getElementById('gg-consent'), details=d.getElementById('gg-cookie-info'), returnFocus=null;
+    function openBanner(event){
+      returnFocus=event?event.currentTarget:null;
+      banner.hidden=false;
+      if(returnFocus) d.getElementById('gg-consent-deny').focus();
+    }
+    function decide(analytics){
+      choice={version:1,analytics:analytics,expires:Date.now()+lifetime};
+      try{w.localStorage.setItem(key,JSON.stringify(choice));}catch(e){}
+      banner.hidden=true;
+      update(analytics);
+      if(returnFocus) returnFocus.focus();
+      if(!analytics){
+        clearAnalyticsCookies();
+        if(loaded) w.location.reload();
+      }
+    }
+    d.getElementById('gg-consent-allow').addEventListener('click',function(){decide(true);});
+    d.getElementById('gg-consent-deny').addEventListener('click',function(){decide(false);});
+    d.querySelectorAll('[data-gg-cookie-settings]').forEach(function(button){button.addEventListener('click',openBanner);});
+    d.getElementById('gg-cookie-details').addEventListener('click',function(){details.showModal();});
+    d.getElementById('gg-cookie-close').addEventListener('click',function(){details.close();});
+    if(!choice) openBanner();
+  });
+})(window,document);
+</script>
+<style>
+#gg-consent[hidden]{display:none!important}
+#gg-consent{position:fixed;right:20px;bottom:20px;z-index:10000;width:min(460px,calc(100% - 32px));padding:22px;background:#fff;color:#17161d;border:1px solid #e7e5eb;border-radius:18px;box-shadow:0 18px 60px rgba(22,9,44,.22);font-family:inherit}
+#gg-consent h2{margin:0 0 10px;font-size:19px;line-height:1.3;color:#36206e}
+#gg-consent p{margin:0 0 16px;font-size:14px;line-height:1.6}
+.gg-consent-actions{display:flex;gap:10px}
+.gg-consent-actions button{flex:1;min-height:46px;padding:11px 12px;border:1px solid #36206e;border-radius:9px;font-weight:600;font-size:14px;line-height:1.35;font-family:inherit;cursor:pointer}
+#gg-consent-deny{background:#fff;color:#36206e}
+#gg-consent-allow{background:#36206e;color:#fff}
+#gg-consent button:focus-visible,#gg-cookie-info button:focus-visible,.gg-cookie-settings:focus-visible{outline:3px solid #0b7a49;outline-offset:3px}
+#gg-cookie-details,.gg-cookie-settings{padding:0;border:0;background:transparent;color:inherit;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+#gg-cookie-details{margin-top:13px;font-size:13px;color:#514764}
+#gg-cookie-info{width:min(680px,calc(100% - 32px));max-height:85vh;padding:28px;border:1px solid #e7e5eb;border-radius:16px;background:#fff;color:#17161d;font-family:inherit;box-shadow:0 20px 70px rgba(22,9,44,.25)}
+#gg-cookie-info::backdrop{background:rgba(22,9,44,.4)}
+#gg-cookie-info h2{margin:0 0 16px;font-size:24px;color:#36206e}
+#gg-cookie-info h3{margin:20px 0 8px;font-size:17px}
+#gg-cookie-info p{font-size:15px;line-height:1.65}
+#gg-cookie-info a{color:#36206e;text-decoration:underline}
+#gg-cookie-close{min-height:44px;padding:10px 20px;border:0;border-radius:8px;background:#36206e;color:#fff;font:inherit;cursor:pointer}
+@media(max-width:540px){#gg-consent{right:16px;bottom:16px;padding:18px}.gg-consent-actions{flex-direction:column}.gg-consent-actions button{flex:auto;width:100%}#gg-cookie-info{padding:22px}}
+</style>
+<!-- End GOGREEN analytics -->
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>GOGREEN SYSTEM — modułowy system stoisk targowych</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="canonical" href="https://www.gogreensystem.pl/">
+    <link rel="canonical" href="https://gogreensystem.pl/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preload" as="image" href="images/glowny_baner_tlo.webp">
@@ -16,10 +113,10 @@
 
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.gogreensystem.pl/">
+    <meta property="og:url" content="https://gogreensystem.pl/">
     <meta property="og:title" content="GOGREEN SYSTEM — modułowy system stoisk targowych">
     <meta property="og:description" content="Aluminiowe ramy modułowe, lightboxy, GOGLASS, łączniki i oświetlenie LED do profesjonalnych stoisk targowych. Szybki montaż i wielokrotne użycie.">
-    <meta property="og:image" content="https://www.gogreensystem.pl/images/stoisko_tlo.webp">
+    <meta property="og:image" content="https://gogreensystem.pl/images/stoisko_tlo.webp">
     <script src="script.js" defer></script>
 </head>
 
@@ -48,7 +145,7 @@
 
             <!-- DESKTOP ACTIONS -->
             <div class="nav-actions">
-                <a class="whatsapp" href="https://wa.me/48690442877" target="_blank" rel="noopener">
+                <a class="whatsapp" href="https://wa.me/48794146554" target="_blank" rel="noopener">
                     <i class="fa-brands fa-whatsapp"></i>
                     <span class="hidden">WhatsApp</span>
                 </a>
@@ -59,6 +156,12 @@
                     Katalog
                 </a>
             </div>
+
+            <a class="mobile-whatsapp" href="https://wa.me/48794146554"
+            target="_blank" rel="noopener"
+            aria-label="Skontaktuj się przez WhatsApp">   
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
 
             <!-- MOBILE HAMBURGER -->
             <button class="mobile-menu-btn" aria-label="Otwórz menu" aria-expanded="false">
@@ -84,7 +187,7 @@
 
             <div class="mobile-menu-actions">
 
-                <a class="mobile-action whatsapp-action" href="https://wa.me/48690442877" target="_blank"
+                <a class="mobile-action whatsapp-action" href="https://wa.me/48794146554" target="_blank"
                     rel="noopener">
                     <i class="fa-brands fa-whatsapp"></i>
                     WhatsApp
@@ -837,8 +940,8 @@
                             najważniejsze funkcje. Resztę doprecyzujemy wspólnie.</p>
                         <div class="contact-lines"><a href="tel:+48690442877">+48 690 442 877</a><a
                                 href="mailto:gogreenstand@gmail.com">gogreenstand@gmail.com</a><a
-                                href="https://www.gogreensystem.pl" target="_blank"
-                                rel="noopener">www.gogreensystem.pl</a>
+                                href="https://gogreensystem.pl" target="_blank"
+                                rel="noopener">gogreensystem.pl</a>
                         </div>
                         <div class="actions"><a class="btn green"
                                 href="mailto:gogreenstand@gmail.com?subject=Zapytanie%20o%20ofertę%20GOGREEN">Zapytaj o
@@ -857,13 +960,38 @@
         <footer>
             <div class="container foot">
                 <div><b>GOGREEN SYSTEM</b><br>Modułowe ramy • GOGLASS • Lightbox • LED • Akcesoria</div>
-                <div><a href="#start">Wróć na górę ↑</a> &nbsp; • &nbsp; <a
+                <div><button class="gg-cookie-settings" type="button" data-gg-cookie-settings>Ustawienia cookies</button> &nbsp; • &nbsp; <a href="#start">Wróć na górę ↑</a> &nbsp; • &nbsp; <a
                         href="mailto:gogreenstand@gmail.com">gogreenstand@gmail.com</a></div>
             </div>
 
     </main>
 
     </footer>
+<!-- GOGREEN cookie choices -->
+<section id="gg-consent" role="dialog" aria-labelledby="gg-consent-title" aria-describedby="gg-consent-description" hidden>
+  <h2 id="gg-consent-title">Prywatność i cookies</h2>
+  <p id="gg-consent-description">Za Twoją zgodą użyjemy Google Analytics do statystyk odwiedzin. Bez zgody analityka pozostaje wyłączona. Wybór możesz zmienić w stopce.</p>
+  <div class="gg-consent-actions">
+    <button id="gg-consent-deny" type="button">Tylko niezbędne</button>
+    <button id="gg-consent-allow" type="button">Zgadzam się na analitykę</button>
+  </div>
+  <button id="gg-cookie-details" type="button">Informacje o cookies i prywatności</button>
+</section>
+<dialog id="gg-cookie-info" aria-labelledby="gg-cookie-info-title">
+  <h2 id="gg-cookie-info-title">Cookies i prywatność</h2>
+  <p>Informacja dotyczy witryny gogreensystem.pl. Kontakt w sprawach witryny: <a href="mailto:gogreenstand@gmail.com">gogreenstand@gmail.com</a>. Projektowanie i budowa stoisk: Perfekt Anna Rudzka.</p>
+  <h3>Zapamiętanie wyboru</h3>
+  <p>W pamięci przeglądarki (localStorage) zapisujemy wyłącznie Twój wybór dotyczący analityki i datę jego wygaśnięcia. Zapis o nazwie <code>gogreen_consent_v1</code> jest ważny przez 180 dni. Nie służy do śledzenia odwiedzin.</p>
+  <h3>Opcjonalna analityka</h3>
+  <p>Dopiero po zgodzie uruchamiamy Google Analytics 4 przez Google Tag Manager. Narzędzia dostarcza Google. Pomagają mierzyć odwiedziny, urządzenia, źródła ruchu i interakcje z witryną, np. pobranie katalogu. Mogą zapisywać identyfikatory cookies, takie jak <code>_ga</code> i <code>_ga_*</code>. Nie uruchamiamy ich przed zgodą ani po odmowie. Sygnały reklamowe i personalizacja reklam pozostają wyłączone.</p>
+  <p>Szczegóły przetwarzania danych przez Google: <a href="https://policies.google.com/technologies/partner-sites?hl=pl" target="_blank" rel="noopener noreferrer">informacje dla użytkowników witryn korzystających z usług Google</a>.</p>
+  <h3>Zmiana lub wycofanie zgody</h3>
+  <p>W każdej chwili użyj przycisku „Ustawienia cookies” w stopce. Wybranie „Tylko niezbędne” zatrzymuje dalszy pomiar, usuwa dostępne cookies Analytics dla tej domeny i odświeża stronę, jeśli analityka była już uruchomiona. Usunięcie danych witryny w przeglądarce kasuje również zapamiętany wybór.</p>
+  <p>Wiadomość e-mail lub telefon przekazujesz nam dopiero, gdy samodzielnie skontaktujesz się z nami. Korzystanie ze strony bez zgody na analitykę jest możliwe.</p>
+  <button id="gg-cookie-close" type="button">Zamknij</button>
+</dialog>
+<!-- End GOGREEN cookie choices -->
+
 </body>
 
 </html>

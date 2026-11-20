@@ -304,6 +304,33 @@ p {
 	box-shadow: 0 8px 20px rgba(21, 182, 107, 0.35);
 }
 
+.mobile-whatsapp {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #15b66b;
+    color: white;
+
+    font-size: 23px;
+
+    text-decoration: none;
+    flex-shrink: 0;
+
+    transition: 0.25s ease;
+}
+
+.mobile-whatsapp:hover {
+    background: #0e9e59;
+    transform: scale(1.06);
+}
+
 .hero-grid {
 	position: relative;
 	z-index: 2;
@@ -1700,6 +1727,12 @@ footer {
 		border-top: 1px solid rgba(255, 255, 255, 0.12);
 	}
 
+	.mobile-whatsapp {
+    display: flex;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
 	.mobile-action {
 		display: flex;
 		align-items: center;
@@ -2095,6 +2128,10 @@ footer {
 		background-position: 80%;
 		background-size: cover;
 	}
+
+	.brand {
+        gap: 0px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
